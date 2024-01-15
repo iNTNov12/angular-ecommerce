@@ -1,0 +1,17 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="{{ produs.imagine_url }}" class="detail-img" alt="">
+
+        <h3>{{ produs.nume }}</h3>
+        <div class="pret">{{ produs.pret_unit}} Lei</div>
+        <button (click)="adaugaInCos()" class="btn btn-primary btn-sm">Adauga in cos</button>
+
+        <hr>
+        <h4>Descriere</h4>
+        <p>{{ produs.descriere }}</p>
+
+        <a routerLink="/produse" class="mt-5">Inapoi la Lista de Produse</a>
+    </div>
+</div>
+

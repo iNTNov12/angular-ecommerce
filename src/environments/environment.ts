@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  bitShopApiUrl: "https://localhost:8443/api",
+  stripePublishableKey: "pk_test_51OYWxHFocPsieeOerNdpEKJySGblxkkK7aYlKQ5f0i7diyqhPmYays1NRExS1PwXOpjNqBOhg9zKdTRw4LflL5Tg0099o1OULd"
 };
 
 /*

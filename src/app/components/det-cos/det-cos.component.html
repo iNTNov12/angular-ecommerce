@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <div *ngIf="itemeCos.length > 0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="20%">Imagine Produs</th>
+                        <th width="50%">Detalii Produs</th>
+                        <th width="30%"></th>
+                    </tr>
+
+                    <tr *ngFor="let tempItemCos of itemeCos">
+                        <td>
+                            <img src="{{ tempItemCos.imagine_url }}" class="img-responsive" width="150px">
+                        </td>
+                        <td>
+                            <p>{{ tempItemCos.nume }}</p>
+                            <p>{{ tempItemCos.pret_unit }} Lei</p>
+                        </td>
+                        <td>
+                            <div class="items">
+                                <label>Cantitate:</label>
+
+                                <div class="row no-gutters">
+                                    <div class="col">
+                                        <button (click)="incrementCantitate(tempItemCos)" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col ml-4 mr-2">
+                                        {{ tempItemCos.cantitate }}
+                                    </div>
+
+                                    <div class="col">
+                                        <button (click)="decrementCantitate(tempItemCos)" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-8"></div>
+
+                                </div>
+                            </div>
+
+                            <p><button (click)="remove(tempItemCos)" class="btn btn-primary btn-sm mt-2">Sterge</button></p>
+                            
+                            <p class="mt-2">Subtotal: {{ tempItemCos.cantitate * tempItemCos.pret_unit }} Lei</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"></td>
+                        <td style="font-weight: bold;">
+                            <p>Cantitate Totala: {{ cantitateTotala }}</p>
+                            <p>Transport: Gratuit</p>
+                            <p>Pret Total: {{ pretTotal }} Lei</p>
+                            <p><a routerLink="/checkout" class="btn btn-primary">Cumpara</a></p>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+                <!-- Daca cosul este gol afisam un mesaj -->
+                <div *ngIf="itemeCos.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    Cosul dvs. de cumparaturi este gol.
+                </div>
+
+        </div>
+    </div>
+</div>

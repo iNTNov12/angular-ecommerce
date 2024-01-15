@@ -1,0 +1,79 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+
+        <h4>Categorie: {{ currentCategoryName }}</h4>
+        <hr>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- loop colectie de produse -->
+                <div *ngFor="let tempProdus of produses" class="col-md-3">
+
+                    <div class="product-box">
+                        
+                        <a routerLink="/produse/{{ tempProdus.id }}">
+                            <img src="{{ tempProdus.imagine_url }}" class="img-responsive">
+                        </a>
+                        
+                        <a routerLink="/produse/{{ tempProdus.id }}">
+                            <h1>{{ tempProdus.nume }}</h1>
+                        </a>
+                        
+                        <div class="price">{{ tempProdus.pret_unit }} Lei</div>
+                        <button (click)="adaugaInCos(tempProdus)" class="btn btn-primary btn-sm">Adauga in cos</button>
+                    </div>
+                
+                </div>
+
+                <!-- fara produse-->
+                <div *ngIf="produses?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    Nu a fost gasit un produs.
+                </div>
+
+            </div>
+
+            <!-- footer -->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" syle="padding-left: 30%">
+
+                                <ngb-pagination [(page)]="thePageNumber"
+                                                [pageSize]="thePageSize"
+                                                [collectionSize]="theTotalElements"
+                                                [maxSize]="5"
+                                                [boundaryLinks]="true"
+                                                (pageChange)="listaProduse()">
+
+                                </ngb-pagination>
+
+                            </div>
+
+                            <div class="col-md-3 mt-2" style="text-align: right;">
+                                <span class="mr-2">Marime Pagina</span>
+
+                                <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+                                    <option>2</option>
+                                    <option selected="true">5</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

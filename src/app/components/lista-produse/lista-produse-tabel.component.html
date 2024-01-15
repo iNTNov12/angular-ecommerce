@@ -1,0 +1,23 @@
+<table class="table">
+
+    <thead class="table-dark">
+        <tr>
+            <th></th>
+            <th>Nume</th>
+            <th>Pret</th>
+            <th>Unitati in Stoc</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempProdus of produses">
+            <td class="align-middle">
+                <img src="{{ tempProdus.imagine_url }}" height="50" alt="">
+            </td>
+            <td class="align-middle">{{ tempProdus.nume }}</td>
+            <td class="align-middle">{{ tempProdus.pret_unit | currency:'USD'}}</td>
+            <td class="align-middle">{{ tempProdus.unitati_in_stoc}}</td>
+        </tr>
+    </tbody>
+
+</table>

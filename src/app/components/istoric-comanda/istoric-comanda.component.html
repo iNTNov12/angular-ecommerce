@@ -1,0 +1,44 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <h3>Comenzi</h3>
+
+            <div *ngIf="comandaIstoricLista.length > 0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="20%">Numar Urmarire Comanda</th>
+                        <th width="10%">Pret Total</th>
+                        <th width="10%">Cantitate Totala</th>
+                        <th width="10%">Data</th>
+                    </tr>
+
+                    <tr *ngFor="let tempIstoricComanda of comandaIstoricLista">
+                        <td>
+                            {{ tempIstoricComanda.urmarireNumarComanda }}
+                        </td>
+                        
+                        <td>
+                            {{ tempIstoricComanda.pretTotal }} Lei
+                        </td>
+
+                        <td>
+                            {{ tempIstoricComanda.cantitateTotala }}
+                        </td>
+
+                        <td>
+                            {{ tempIstoricComanda.creareData | date: 'medium' }}
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <!-- daca nu avem istoric comenzi -->
+            <div *ngIf="comandaIstoricLista.length == 0" class="alert alert-warning col-md-12" role="alert">
+                Nici o comanda gasita.
+            </div>
+
+        </div>
+
+    </div>
+</div>
